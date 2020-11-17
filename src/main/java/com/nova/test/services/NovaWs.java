@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.nova.test.model.NovaMS;
+import com.nova.test.model.NovaResMS;
 
 /* Servicios Nova */
 @CrossOrigin
@@ -26,8 +27,9 @@ public class NovaWs {
 	/* Servicio recibir parametros */
 	@PostMapping("/DevOps")
 	@ResponseStatus(HttpStatus.OK)
-	public String devops(@RequestBody NovaMS nova) {
-		String respuesta = "Hello ".concat(nova.getTo().concat(" your message will be send"));
+	public NovaResMS devops(@RequestBody NovaMS nova) {
+		NovaResMS respuesta = new NovaResMS();
+		respuesta.setMessage("Hello ".concat(nova.getTo().concat(" your message will be send")));
 		return respuesta;
 	}
 }

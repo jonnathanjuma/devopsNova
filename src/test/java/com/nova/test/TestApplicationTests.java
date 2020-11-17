@@ -3,13 +3,12 @@ package com.nova.test;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.context.annotation.Bean;
 import org.springframework.web.client.RestTemplate;
 
 import com.nova.test.model.NovaMS;
+import com.nova.test.model.NovaResMS;
 
 @SpringBootTest
 class TestApplicationTests {
@@ -27,7 +26,7 @@ class TestApplicationTests {
 		datos.setTimeToLifeSec("10");
 		datos.setTo("Juan");
 		assertThat(this.restTemplate().postForObject("http://localhost:8080/DevOps", datos,
-				String.class));
+				NovaResMS.class));
 	}
 
 }
